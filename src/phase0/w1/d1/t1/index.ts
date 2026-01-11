@@ -87,3 +87,5 @@ function getDiscountedPrice(price: number, discountRate: number): number | strin
 
 // 1000円の30%オフなので 700 を期待
 console.log(getDiscountedPrice(1000, 0.3));
+
+export { };
