@@ -22,3 +22,6 @@ type User = {
 const getAuthorizedUserNames = (users: User[]): string[] => {
   return users.filter(user => user.role === 'admin' || user.role === 'member').map(user => user.name)
 }
+// const getAuthorizedUserNames = (users: User[]): string[] => {
+//   return users.filter(user => ["admin", "member"].includes(user.role)).map(user => user.name)
+// }
