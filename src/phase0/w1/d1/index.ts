@@ -37,6 +37,8 @@ console.log(getAcailableProducts(products, 1000));
 // 4. **「税込価格（1.1を掛ける）」の計算に `Math.floor()` を使って小数点以下を切り捨ててください。**
 // 【制約】: reduce メソッドを使って合計を算出してみてください（調べながらでOK）。
 
+const TAX_RATE: number = 1.1;
+
 type CartItem = {
     id: number;
     quantity: number;
@@ -51,6 +53,11 @@ const cartItems: CartItem[] = [
 ]
 
 const calculateTotal = (items: CartItem[]): number | string => {
+
+    if (items.every(item => item.price < 0)) {
+        return "価格は0以上の数値で入力してください";
+    }
+
     if (items.length === 0) {
         return "カートは空です";
     }
@@ -60,7 +67,7 @@ const calculateTotal = (items: CartItem[]): number | string => {
         if (item.isTaxFree) {
             return acc + item.price * item.quantity;
         } else {
-            return acc + Math.floor(item.price * item.quantity * 1.1);
+            return acc + Math.floor(item.price * item.quantity * TAX_RATE);
         }
     }, 0);
 
