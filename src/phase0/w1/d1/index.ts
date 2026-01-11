@@ -75,3 +75,15 @@ const calculateTotal = (items: CartItem[]): number | string => {
 }
 
 console.log(calculateTotal(cartItems));
+
+
+
+function getDiscountedPrice(price: number, discountRate: number): number | string {
+    if (discountRate < 0 || discountRate > 1) {
+        return "割引率は0以上1以下で入力してください";
+    }
+    return price * (1 - discountRate);
+}
+
+// 1000円の30%オフなので 700 を期待
+console.log(getDiscountedPrice(1000, 30));
