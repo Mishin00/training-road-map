@@ -68,3 +68,5 @@ const inventoryItems = [
 ]
 
 console.log(getShortageReport(inventoryItems));
+
+export { }
